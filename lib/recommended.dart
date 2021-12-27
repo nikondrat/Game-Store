@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gast/view_game.dart';
 import 'package:ionicons/ionicons.dart';
 
 class Platforms {
@@ -50,81 +51,89 @@ class RecommendedWidget extends StatelessWidget {
             itemBuilder: (context, index) {
               return Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8),
-                child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(16),
-                        child: Image.network(
-                          images[index],
-                          isAntiAlias: true,
-                          fit: BoxFit.fill,
-                          width: width,
-                          height: height - 100,
+                child: InkWell(
+                  onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const ViewGamePage())),
+                  splashColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(16),
+                          child: Image.network(
+                            images[index],
+                            isAntiAlias: true,
+                            fit: BoxFit.fill,
+                            width: width,
+                            height: height - 100,
+                          ),
                         ),
-                      ),
-                      Text(
-                        games[index],
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 18.sm,
-                            fontWeight: FontWeight.bold),
-                      ),
-                      Row(
-                        children: [
-                          platforms[index].windows == true
-                              ? const Icon(
-                                  Ionicons.logo_windows,
-                                  color: Colors.white,
-                                )
-                              : Container(),
-                          const SizedBox(
-                            width: 2,
-                          ),
-                          platforms[index].apple == true
-                              ? const Icon(
-                                  Ionicons.logo_apple,
-                                  color: Colors.white,
-                                )
-                              : Container(),
-                          const SizedBox(
-                            width: 2,
-                          ),
-                          platforms[index].linux == true
-                              ? const Icon(
-                                  Ionicons.logo_tux,
-                                  color: Colors.white,
-                                )
-                              : Container(),
-                          const SizedBox(
-                            width: 2,
-                          ),
-                          platforms[index].xbox == true
-                              ? const Icon(
-                                  Ionicons.logo_xbox,
-                                  color: Colors.white,
-                                )
-                              : Container(),
-                          const SizedBox(
-                            width: 2,
-                          ),
-                          platforms[index].playstation == true
-                              ? const Icon(
-                                  Ionicons.logo_playstation,
-                                  color: Colors.white,
-                                )
-                              : Container(),
-                        ],
-                      ),
-                      ElevatedButton(
-                        onPressed: () {},
-                        child: const Text('Install'),
-                        style: ButtonStyle(
-                            backgroundColor:
-                                MaterialStateProperty.all(Colors.pink)),
-                      )
-                    ]),
+                        Text(
+                          games[index],
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 18.sm,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        Row(
+                          children: [
+                            platforms[index].windows == true
+                                ? const Icon(
+                                    Ionicons.logo_windows,
+                                    color: Colors.white,
+                                  )
+                                : Container(),
+                            const SizedBox(
+                              width: 2,
+                            ),
+                            platforms[index].apple == true
+                                ? const Icon(
+                                    Ionicons.logo_apple,
+                                    color: Colors.white,
+                                  )
+                                : Container(),
+                            const SizedBox(
+                              width: 2,
+                            ),
+                            platforms[index].linux == true
+                                ? const Icon(
+                                    Ionicons.logo_tux,
+                                    color: Colors.white,
+                                  )
+                                : Container(),
+                            const SizedBox(
+                              width: 2,
+                            ),
+                            platforms[index].xbox == true
+                                ? const Icon(
+                                    Ionicons.logo_xbox,
+                                    color: Colors.white,
+                                  )
+                                : Container(),
+                            const SizedBox(
+                              width: 2,
+                            ),
+                            platforms[index].playstation == true
+                                ? const Icon(
+                                    Ionicons.logo_playstation,
+                                    color: Colors.white,
+                                  )
+                                : Container(),
+                          ],
+                        ),
+                        ElevatedButton(
+                          onPressed: () {},
+                          child: const Text('Install'),
+                          style: ButtonStyle(
+                              backgroundColor:
+                                  MaterialStateProperty.all(Colors.pink)),
+                        )
+                      ]),
+                ),
               );
             }));
   }
