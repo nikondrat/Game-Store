@@ -19,11 +19,11 @@ class RecommendedWidget extends StatelessWidget {
             itemBuilder: (context, index) {
               return Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(16),
-                  child: Container(
-                    height: height,
-                    width: width,
+                child: Container(
+                  width: width,
+                  height: height,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(16),
                     child: Image.network(
                       'https://www.cyberpunk.net/build/images/home3/screen-image-about-b-6e3102b1.jpg',
                       isAntiAlias: true,
