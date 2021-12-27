@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gast/category.dart';
+import 'package:gast/popular.dart';
 import 'package:gast/recommended.dart';
 import 'package:gast/title.dart';
 
@@ -22,11 +23,14 @@ class HomePage extends StatelessWidget {
         ),
         body: ListView(
           physics: const BouncingScrollPhysics(),
+          shrinkWrap: true,
           children: const [
             BodyTitle(text: 'Category'),
             Category(),
             BodyTitle(text: 'Recommended'),
             RecommendedWidget(),
+            BodyTitle(text: 'Popular Games'),
+            PopularGames()
           ],
         ));
   }
