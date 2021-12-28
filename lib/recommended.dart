@@ -55,7 +55,10 @@ class RecommendedWidget extends StatelessWidget {
                   onTap: () => Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const ViewGamePage())),
+                          builder: (context) => ViewGamePage(
+                                index: index,
+                                name: games[index],
+                              ))),
                   splashColor: Colors.transparent,
                   highlightColor: Colors.transparent,
                   child: Column(
