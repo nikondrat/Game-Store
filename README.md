@@ -1,3 +1,4 @@
 # gast
 
-Flutter example project.
+A game store written on the Flutter framework
+
